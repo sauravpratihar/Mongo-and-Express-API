@@ -1,0 +1,22 @@
+<% include part/header %>
+    <h1>Add customer</h1>
+    <% if(errors){ %>
+         <%  errors.forEach(function(error){ %>
+        <li><%= error.msg %></li>
+    <% })%>
+    <% } %>
+    <form method="POST" action="/users/add">
+        <lable>First Name</lable>
+        <input type="text" name="first_name">
+        <br>
+        <lable>Last Name</lable>
+        <input type="text" name="last_name"><br>
+        <input type="text" name="email">
+        
+        <input type="submit" value="add">
+    </form>
+    <h1><%= title %></h1>
+    <%  users.forEach(function(user){ %>
+        <li><%= user.first_name%> <%= user.last_name%> : <a href="#" class="deleteUser" data-id="<%= user._id %>">Delete</a></li>
+    <% })%>
+<% include part/footer %>
